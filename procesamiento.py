@@ -22,7 +22,7 @@ class Imagen:
     def reducir_niveles(self, niveles):
         if self.imagen.dtype == np.float64:
             imagen_reducida = np.floor(self.imagen * niveles) / niveles
-        else:  # Asumiendo tipo entero (por ejemplo, uint8)
+        else: 
             imagen_reducida = (self.imagen // niveles) * niveles
         self.imagen = imagen_reducida.astype(self.imagen.dtype)   
 
