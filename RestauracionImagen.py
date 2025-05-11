@@ -15,7 +15,7 @@ import skimage.filters
 # Carga y reescalamiento de una imagen dañida
 
 #Carga de la imagen
-damaged_image = skimage.io.imread("imagenoriginal.png")
+damaged_image = skimage.io.imread("app/subidas/imagenoriginal.png")
 #Reescalamiento
 image_rescaled = transform.rescale(damaged_image, 1, anti_aliasing=False, channel_axis=-1)
 

@@ -3,7 +3,7 @@ from app.vistas.visor_imagenes import VisorImagenes, SeleccionarMascara
 
 
 # Creamos una instancia de la clase ProcesarImagen con la imagen a mejorar
-Imagen = ProcesarImagen("jose.jpg")
+Imagen = ProcesarImagen("app/subidas/jose.jpg")
 
 # Seleccionamos el área a restaurar
 Mascara = SeleccionarMascara(Imagen.imagen)
