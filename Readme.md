@@ -1,5 +1,11 @@
 # Restauración de imágenes con Sckit-image
 
+# **FALTA REESCRIBIR CON LOS ÚLTIMOS CAMBIOS**
+
+## Lo que se hizo es la api mas básicas de las apis... 
+
+-----------------------------------------------
+
 ## Requisitos
 
 1. Scikit-image (pip install scikit-image)

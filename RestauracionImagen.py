@@ -44,17 +44,17 @@ plt.title ("Imagen sin ruido")
 #plt.axis("off")
 plt.show()
 
-#Create a mask. The image's torn out parts will be 
-#white in the mask, the rest of the mask will be black. 
+#Create a mascara. The image's torn out parts will be 
+#white in the mascara, the rest of the mascara will be black. 
 
 
-mask = np.zeros(image_rescaled.shape[:-1])
-mask[128:180,66:170]=1
-#mask[150:183, 0:75]=1
-#mask[315:435, 355:488]=1
-#Display the mask:
-skimage.io.imshow(mask)
-plt.title('Binary Mask')
+mascara = np.zeros(image_rescaled.shape[:-1])
+mascara[128:180,66:170]=1
+#mascara[150:183, 0:75]=1
+#mascara[315:435, 355:488]=1
+#Display the mascara:
+skimage.io.imshow(mascara)
+plt.title('Binary mascara')
 #plt.axis('off')
 
 # Restaurar la imagen 
@@ -64,7 +64,7 @@ plt.title('Binary Mask')
 # ############################################################
 # 
 # """
-restored_image = skimage.restoration.inpaint_biharmonic(filtered_image, mask, channel_axis=-1)
+restored_image = skimage.restoration.inpaint_biharmonic(filtered_image, mascara, channel_axis=-1)
 
 # Graficar la imagen restaurada junto con la imagen original:
 f, ax = plt.subplots(1, 2, figsize=(10, 5))

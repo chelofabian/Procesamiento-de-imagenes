@@ -20,7 +20,7 @@ class VisorImagenes():
 class SeleccionarMascara():
     def __init__(self, imagen):
         self.imagen = imagen
-        self.mask = np.zeros(self.imagen.shape[:2], dtype=np.uint8)
+        self.mascara = np.zeros(self.imagen.shape[:2], dtype=np.uint8)
 
         self.fig, self.ax = plt.subplots()
         self.ax.set_title("Seleccionar mascara en la imagen")
@@ -32,5 +32,5 @@ class SeleccionarMascara():
     def on_select(self, verts):
         from skimage.draw import polygon
         rr, cc = polygon(np.array([v[1] for v in verts]), np.array([v[0] for v in verts]), self.imagen.shape[:2])
-        self.mask[rr, cc] = 1
+        self.mascara[rr, cc] = 1
      
