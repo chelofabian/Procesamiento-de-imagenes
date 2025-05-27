@@ -7,6 +7,10 @@ from app.procesamiento.imagenes import ProcesarImagen
 
 app = FastAPI()
 
+@app.get("/")
+async def root():
+    return {"message": "Bienvenido a la API de procesamiento de imágenes. Usa /procesar-imagen/ para procesar una imagen, o bien ingresá a /docs para ver la documentación interactiva."}
+
 @app.post("/procesar-imagen/")
 async def procesar_la_imagen(file: UploadFile = File(...), escala: float = 1.0, sigma: float = 0.1, mascara: str = None):
     
@@ -30,8 +34,8 @@ async def procesar_la_imagen(file: UploadFile = File(...), escala: float = 1.0, 
     imagen_procesada_uint8 = (Imagen.imagen * 255).astype(np.uint8)
 
     # Guarda la imagen procesada en memoria para no escribir en disco y la devuelve como respuesta
-    respuesta_imagen_buffer = io.BytesIO()
-    skio.imsave(respuesta_imagen_buffer, imagen_procesada_uint8, plugin='imageio', format='png') 
-    respuesta_imagen_buffer.seek(0)
+    respuesta_imagen_memoria = io.BytesIO()
+    skio.imsave(respuesta_imagen_memoria, imagen_procesada_uint8, plugin='imageio', format='png') 
+    respuesta_imagen_memoria.seek(0)
 
-    return StreamingResponse(respuesta_imagen_buffer, media_type="image/png")
+    return StreamingResponse(respuesta_imagen_memoria, media_type="image/png")
