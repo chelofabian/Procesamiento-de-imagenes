@@ -90,13 +90,6 @@ Esta clase se encarga de cargar la imagen (recibe un array NumPy), convertirla a
 * **`aplicar(self)`**:
     * Combina la imagen procesada con la imagen original. Las partes de la imagen original que no estaban enmascaradas (`self.mascara == 0`) se restauran a partir de `self.imagen_original`. Esto asegura que solo las áreas enmascaradas y luego restauradas retengan los cambios del inpainting, mientras que el resto de la imagen permanece fiel al original después del procesamiento de ruido.
 
-### Clases de Vista (Mencionadas en el Readme Original)
-
-* **`VisorImagenes`**: Mencionada para visualización básica de imágenes.
-* **`SeleccionarMascara`**: Mencionada para permitir la selección del área de máscara.
-
-> *Nota: Estas clases parecen ser de una etapa anterior o para una interfaz gráfica, ya que la API actual en `main.py` maneja la máscara como una cadena de texto y no utiliza directamente estas clases de "vistas".*
-
 ## Notas Adicionales
 
 * La API actual es una versión básica y podría expandirse con más funcionalidades y opciones de procesamiento.
